@@ -1,0 +1,19 @@
+    .row {
+      --bs-gutter-x: 0rem;
+    }
+
+    .login-bg,
+    .background {
+      background-color: #00000080;
+      border-radius: 25px;
+    }
+
+    .fa {
+      color: yellow;
+      z-index: 1;
+      display: inline-block;
+    }
+
+    .heading {
+      color: rgb(0, 255, 191);
+    }

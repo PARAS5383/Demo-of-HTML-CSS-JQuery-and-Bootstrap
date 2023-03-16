@@ -12,41 +12,8 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <style>
-    .navbar {
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .img {
-      opacity: 50%;
-    }
-
-    .row {
-      padding-top: 20%;
-    }
-
-    .text {
-      background-color: rgba(0, 0, 0, 0.65);
-    }
-
-    .cover {
-      background-color: rgba(0, 0, 0, 0.40);
-      height: 100vh;
-      min-height: 500px;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .background {
-      background-image: url('photos/about-us-photo.jpeg');
-      height: 100vh;
-      min-height: 500px;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-    }
-  </style>
+      <script type="text/javascript" src="/js/contact-us.js"></script>
+      <link href="/css/contact-us.css" rel="stylesheet">
 </head>
 
 <body>
@@ -82,18 +49,4 @@
     </div>
   </div>
 </body>
-<script>
-  //find user id or username
-  const urlParams = window.location.href;
-  userID = urlParams.split('?')[1];
-
-  //for back home
-  function home() {
-    if (userID != undefined) {
-      window.location.href = 'Home.html?' + userID;
-    }
-    else {
-      window.location.href = 'Home.html';
-    }
-  };
-</script>
+</html>

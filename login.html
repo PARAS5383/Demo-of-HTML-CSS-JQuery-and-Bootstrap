@@ -12,38 +12,11 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <style>
-    .row {
-      --bs-gutter-x: 0rem;
-    }
-
-    @media only screen and (min-width: 1200px) {
-      .login-bg {
-        margin-top: 10%;
-      }
-    }
-
-    @media only screen and (max-width: 1200px) {
-      .login-bg {
-        margin-top: 30%;
-      }
-    }
-
-    .login-bg {
-      background-color: #00000080;
-    }
-
-    .login-bg .btn {
-      text-align: center;
-    }
-
-    label {
-      color: #00bad3;
-    }
-  </style>
+  <script type="text/javascript" src="/js/login.js"></script>
+  <link href="/css/login.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="showLogin()">
   <div
     style="background-image: url('photos/Header_background.jpg'); height: 100%; min-height: 990px; background-repeat: no-repeat; background-size: cover; background-position: center;">
     <div id="loginId" class="row justify-content-center">
@@ -108,107 +81,3 @@
 </body>
 
 </html>
-<script>
-
-  // Global variable
-  let uId;
-
-  // Hide the registration and admin part on load body
-  $("#regiId").hide();
-  $("#adminloginId").hide();
-
-  //Open registration section
-  function regiFun() {
-    $("#loginId").hide();
-    $("#regiId").show();
-    $("#adminloginId").hide();
-  };
-
-  //Open the login section
-  function loginFun() {
-    $("#loginId").show();
-    $("#regiId").hide();
-    $("#adminloginId").hide();
-  };
-
-  //open the admin section
-  function adminLogin() {
-    $("#loginId").hide();
-    $("#regiId").hide();
-    $("#adminloginId").show();
-  };
-
-  // On registration set the data into the localstorage
-  function register() {
-    sUname = $('#unameRid').val();
-    sName = $("#snameRid").val();
-    sAge = $("#sageRid").val();
-    sGen = '';
-    $.each($("input[name='gender']:checked"), function () {
-      sGen += ($(this).val());
-    });
-    sPass = $("#upassRid").val();
-    pname = 'No plan';
-    sdate = '';
-    edate = '';
-    i = localStorage.length + 1;
-    const data = { id: i.toString(), user_name: sUname, student_name: sName, age: sAge, gender: sGen, password: sPass, plan_name: pname, starting_Date: sdate, ending_Date: edate };
-    window.localStorage.setItem(i, JSON.stringify(data));
-    loginFun();
-  };
-
-  //Validate the user the redirected to home page with userid
-  function valid() {
-    sUname = $('#unameId').val();
-    sPass = $("#upassId").val();
-    for (var j = 1; j <= localStorage.length; j++) {
-      let obj = JSON.parse(localStorage.getItem(j));
-      if (obj.user_name == sUname && obj.password == sPass) {
-        uId = obj.id;
-        window.location.href = 'Home.html?' + uId;
-      }
-      else {
-        notValid();
-      }
-    };
-  };
-
-  // Validate the admin and redirected to home page with admin username
-  function validAdmin() {
-    let dataEntry;
-    var aUname = $('#unameAid').val();
-    var aPass = $("#upassAid").val();
-    $.get("Data/admin.json", function (data, status, xhr) {
-      for (var j = 0; j < data.length; j++) {
-        dataEntry = data[j];
-        aUser = dataEntry.username;
-        aUpass = dataEntry.password;
-        if (aUser == aUname && aUpass == aPass) {
-          window.location.href = 'Home.html?' + aUser;
-        }
-        else {
-          notValid();
-        }
-      }
-    });
-  };
-
-  // Not valid the username and password than give the warning 
-  function notValid() {
-    $(".addWarning").html('<h7 class="text-danger">Enter Valid Username & Password!</h7>');
-    $("#upassId").val('');
-    $("#upassAid").val('');
-    const myTimeout = setTimeout(clearWarning, 1000);
-  };
-
-  //Clear warning after 1 second
-  function clearWarning() {
-    $(".addWarning").empty();
-  };
-
-  //If not login and back home
-  function backHome() {
-    window.location.href = 'Home.html';
-  };
-
-</script>

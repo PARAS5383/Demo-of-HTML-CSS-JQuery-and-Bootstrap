@@ -1,0 +1,95 @@
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #heading {
+      color: white;
+      color: active;
+      font-size: 50px;
+      font-family: 'Poppins';
+      font-weight: bold;
+      display: inline-block;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #subHeading {
+      color: rgb(0, 255, 191);
+      background-color: rgba(0, 0, 0, 0.5);
+      display: inline-block;
+    }
+
+    .slideClass {
+      position: relative;
+    }
+
+    .slidetitle {
+      color: white;
+      position: absolute;
+      z-index: 1;
+      margin-top: 37%;
+      margin-left: 40%;
+    }
+
+    .plan {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .plan-button {
+      background-color: rgba(255, 203, 33, 0.5);
+    }
+
+    .line,
+    #addUser {
+      color: rgb(255, 176, 73);
+    }
+
+    @media only screen and (min-width: 992px) {
+
+      .swiper-wrapper,
+      .swiper-button-prev {
+        margin-left: 8%;
+      }
+
+      .swiper-button-next {
+        margin-right: 6%;
+      }
+
+      .slidetitle {
+        margin-top: 34%;
+        margin-left: 39%;
+      }
+    }
+
+    @media only screen and (min-width: 1200px) {
+
+      .swiper-wrapper,
+      .swiper-button-prev {
+        margin-left: 13%;
+      }
+
+      .swiper-button-next {
+        margin-right: 15;
+      }
+
+      .slidetitle {
+        margin-top: 28%;
+        margin-left: 33%;
+      }
+    }
+
+    @media only screen and (min-width: 1400px) {
+
+      .swiper-wrapper,
+      .swiper-button-prev {
+        margin-left: 18%;
+      }
+
+      .swiper-button-next {
+        margin-right: 20%;
+      }
+
+      .slidetitle {
+        margin-top: 25%;
+        margin-left: 29%;
+      }
+    }
