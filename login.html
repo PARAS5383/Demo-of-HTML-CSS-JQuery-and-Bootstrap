@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/login.js"></script>
+  <link href="/css/login.css" rel="stylesheet">
+</head>
+
+<body onload="showLogin()">
+  <div
+    style="background-image: url('photos/Header_background.jpg'); height: 100%; min-height: 990px; background-repeat: no-repeat; background-size: cover; background-position: center;">
+    <div id="loginId" class="row justify-content-center">
+      <div class="login-bg p-4 col-lg-2 col-sm-6 col-10 align-items-center justify-content-center">
+        <h3 class="text-center text-light">User Login</h3>
+        <label for="unameId">Username
+          <input class="form-control mt-1" type="text" id="unameId"></label>
+        <label for="upassId">Password
+          <input class="form-control mt-1" type="password" id="upassId"></label>
+        <h3 class="text-center mt-2"><button class="btn btn-warning rounded border-0" type="button"
+            onclick="valid()">LOGIN</button></h3>
+        <div class="addWarning"></div>
+        <h7><a class="text-decoration-none  text-danger" onclick="regiFun()">New user? Registered now!</a></h7>
+        <h5 class="mt-2"><a class="text-decoration-none text-success" onclick="adminLogin()">Admin Login</a></h5>
+        <h3 class="mt-2"><button class="btn btn-success rounded border-0" type="button"
+            onclick="backHome()">Home</button></h3>
+      </div>
+    </div>
+    <div id="regiId" class="row justify-content-around">
+      <div class="login-bg p-4 col-lg-2 col-sm-6 col-10 align-items-center justify-content-center">
+        <h3 class="text-center text-light">Registration</h3>
+        <form onsubmit="register()">
+          <label for="unameRid">Username
+            <input class="form-control mt-1" type="text" id="unameRid" required /></label>
+          <label for="snameRid">Studentname
+            <input class="form-control mt-1" type="text" id="snameRid" required /></label>
+          <label for="sageRid">Age
+            <input class="form-control mt-1" type="number" id="sageRid" required /></label>
+          <div class=" mt-1">
+            <label class="form-label">Gender:
+              <label for="gmale">Male</label>
+              <input class="genderc" type="radio" id="gmale" name="gender" value="Male" required />
+              <label for="gfemale">Female</label>
+              <input class="genderc" type="radio" id="gfemale" name="gender" value="Female" required />
+              <label for="gother">Other</label>
+              <input class="genderc" type="radio" id="gother" name="gender" value="Other" required />
+            </label>
+          </div>
+          <label for="upassRId">Password 
+            <input class="form-control mt-1" type="password" id="upassRid" required /></label>
+          <h3 class="text-center mt-2"><button class="btn btn-warning rounded border-0" type="submit"
+              id="subId">Register</button>
+          </h3>
+        </form>
+        <h7><a class="text-decoration-none text-danger" onclick="loginFun()">Already Registered? Login now!</a></h7>
+      </div>
+    </div>
+    <div id="adminloginId" class="row justify-content-center">
+      <div class="login-bg p-4 col-lg-2 col-sm-6 col-10 align-items-center justify-content-center">
+        <h3 class="text-center text-light">Admin Login</h3>
+        <label for="unameId">Username
+          <input class="form-control mt-1" type="text" id="unameAid"></label>
+        <label for="upassId">Password 
+          <input class="form-control mt-1" type="password" id="upassAid"></label>
+        <h3 class="text-center mt-2"><button class="btn btn-warning rounded border-0" type="button"
+            onclick="validAdmin()">LOGIN</button></h3>
+        <div class="addWarning"></div>
+        <h7><a class="text-decoration-none text-danger" onclick="loginFun()">No I am not Admin!</a></h7>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

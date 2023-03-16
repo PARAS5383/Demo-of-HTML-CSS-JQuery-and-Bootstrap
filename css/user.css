@@ -1,0 +1,8 @@
+.row {
+  --bs-gutter-x: 0rem;
+}
+
+.login-bg {
+  background-color: #00000080;
+  border-radius: 25px;
+}

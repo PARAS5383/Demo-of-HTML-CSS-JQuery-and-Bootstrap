@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/user.js"></script>
+    <script type="text/javascript" src="/js/user-validation.js"></script>
+    <link href="/css/user.css" rel="stylesheet">
+</head>
+
+<body onload="fetchUser()">
+  <div
+    style="background-image: url('photos/Header_background.jpg'); height: 100%; min-height: 990px; background-repeat: no-repeat; background-size: cover; background-position: center;">
+    <div id="loginId" class="row justify-content-center ">
+      <div
+        class="login-bg  m-5 col-xxl-5 col-xl-6 col-lg-7 col-md-9 col-sm-10 col-11 align-items-center justify-content-center">
+        <h3 class="text-center text-info">User Details</h3>
+        <div class="d-flex justify-content-center text-success">
+          <p>Your plan:<span class="pl-2" id="planId"></span>
+            <span id="plandayId"></span>
+          </p>
+        </div>
+        <div class="d-flex justify-content-center text-light">
+          <p><strong>Your ID No.:</strong></p>
+          <p><strong class="ps-2" id="idnoId"></strong></p>
+        </div>
+        <div class="d-flex justify-content-center text-light">
+          <p>Username:</p>
+          <p class="ps-2" id="usernameId"></p>
+        </div>
+        <div class="d-flex justify-content-center text-light">
+          <p>Name:</p>
+          <p class="ps-2" id="nameId"></p>
+        </div>
+        <div class="d-flex justify-content-center text-light">
+          <p>Age:</p>
+          <p class="ps-2" id="ageId"></p>
+        </div>
+        <div class="d-flex justify-content-center text-light">
+          <p>Gender:</p>
+          <p class="ps-2" id="genderId"></p>
+        </div>
+        <div class="d-flex justify-content-center text-light">
+          <p>Password:</p>
+          <p class="ps-2" id="passwordId"></p>
+        </div>
+        <div class="d-flex justify-content-center text-danger" id="notifiactionId">
+        </div>
+        <div class="d-flex justify-content-center text-info" id="contactId">
+        </div>
+        <h3 class="text-center mt-2"><button class="btn btn-warning rounded border-0" type="button"
+            onclick="editProfile()">Edit Profile</button></h3>
+        <h5 class="mt-2 text-center"><a class="text-decoration-none text-success" onclick="backHome()">Home</a></h5>
+      </div>
+    </div>
+    <div id="editId" class="row justify-content-around text-light">
+      <div
+        class="login-bg m-5 p-3 col-xxl-2 col-xl-3 col-lg-4 col-md-4 col-sm-6 col-11 align-items-center justify-content-center">
+        <h3 class="text-center text-info">Edit user details</h3>
+        <label for="unameRid">Username
+          <input class="form-control mt-1" type="text" id="unameEid" required /></label>
+        <label for="snameRid">Studentname
+          <input class="form-control mt-1" type="text" id="snameEid" required /></label>
+        <label for="sageRid">Age
+          <input class="form-control mt-1" type="number" id="sageEid" required /></label>
+        <div class=" mt-1">
+          <label class="form-label">Gender:
+            <label for="gmale">Male</label>
+            <input class="genderc" type="radio" id="gmale" name="gender" value="Male" required />
+            <label for="gfemale">Female</label>
+            <input class="genderc" type="radio" id="gfemale" name="gender" value="Female" required />
+            <label for="gother">Other</label>
+            <input class="genderc" type="radio" id="gother" name="gender" value="Other" required />
+          </label>
+        </div>
+        <label for="upassRId">Password
+          <input class="form-control mt-1" type="password" id="upassEid" required /></label>
+        <h3 class="text-center mt-2"><button class="btn btn-warning rounded border-0" onclick="UserUpdate()"
+            type="submit" id="subId">Save
+            Changes</button>
+        </h3>
+        <h7 class="mt-2"><a class="text-decoration-none text-danger" onclick="fetchData()">No changes required!</a></h7>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
