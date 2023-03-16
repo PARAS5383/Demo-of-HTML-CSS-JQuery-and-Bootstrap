@@ -1,6 +1,5 @@
 //find user id or username
-const urlParams = window.location.href;
-userID = urlParams.split('?')[1];
+let userID = window.location.href.split('?')[1];
 
 //for back home
 function home() {

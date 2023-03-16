@@ -25,12 +25,11 @@ const swiper = new Swiper('.swiper', {
 
 //Global variable;
 let globalVarible;
+let userID = window.location.href.split('?')[1];
 
 //Fetch id from url and accoring that show user page
 function fetchUser(){
-const urlParams = window.location.href;
-userID = urlParams.split('?')[1];
-idName = $.isNumeric(userID)
+var idName = $.isNumeric(userID)
 if (userID != undefined) {
   if (idName == true) {
     let obj = JSON.parse(localStorage.getItem(userID));
@@ -41,9 +40,9 @@ if (userID != undefined) {
     checkPlan();
   }
   else {
-    $.get("data/admin.json", function (data, status, xhr) {
+    $.get("data/admin.json", function (data) {
       for (var j = 0; j < data.length; j++) {
-        dataEntry = data[j];
+        var dataEntry = data[j];
         if (dataEntry.username == userID) {
           $("#regiBtn").empty();
           $("#loginBtn").empty();
@@ -68,7 +67,7 @@ function data_entries() {
 
 // If user is under the any plan then remove plan section
 function checkPlan() {
-  date = new Date();
+  let date = new Date();
   var currentDate = date.getFullYear() + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getDate();
   uendDate = globalVarible.ending_Date;
   if (currentDate <= uendDate) {
@@ -78,17 +77,17 @@ function checkPlan() {
 
 //For chooisng their plan
 function plan(parameterPass) {
-  planType = parameterPass;
-  date = new Date();
-  currentDate = '';
-  EndDate = '';
+  let planType = parameterPass;
+  let date = new Date();
+  let currentDate = '';
+  let endDate = '';
   var dateToday = date.getFullYear() + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getDate();
   if (planType == 1) {
     checkLogin();
     var text = "You choose Monthly Plan.....";
     if (confirm(text) == true) {
       date.setMonth(date.getMonth() + 1);
-      var EndDate = date.getFullYear() + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getDate();
+      endDate = date.getFullYear() + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getDate();
       globalVarible.plan_name = "Monthly";
       currentDate = dateToday;
     }
@@ -98,7 +97,7 @@ function plan(parameterPass) {
     var text = "You choose Half-yearly Plan.....";
     if (confirm(text) == true) {
       date.setMonth(date.getMonth() + 6);
-      var EndDate = date.getFullYear() + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getDate();
+      endDate = date.getFullYear() + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getDate();
       globalVarible.plan_name = "Half-yearly";
       currentDate = dateToday;
     }
@@ -107,13 +106,13 @@ function plan(parameterPass) {
     checkLogin();
     var text = "You choose Annual Plan.....";
     if (confirm(text) == true) {
-      var EndDate = (date.getFullYear() + 1) + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getDate();
+      endDate = (date.getFullYear() + 1) + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getDate();
       globalVarible.plan_name = "Annual";
       currentDate = dateToday;
     }
   }
   globalVarible.starting_Date = currentDate;
-  globalVarible.ending_Date = EndDate;
+  globalVarible.ending_Date = endDate;
   window.localStorage.setItem(userID, JSON.stringify(globalVarible));
   checkPlan();
 };

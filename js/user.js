@@ -1,14 +1,12 @@
 // fecth data of user from local storage and call append function
-let userId;
-function fetchUser() {
-  const urlParams = window.location.href;
-  userId = urlParams.split('?')[1];
+let userId = window.location.href.split('?')[1];;
+function fetchUser() {  
   $("#editId").hide();
   $("#loginId").show();
   let obj = JSON.parse(localStorage.getItem(userId));
   useridNo = obj.id
   username = obj.user_name;
-  name = obj.student_name;
+  sname = obj.student_name;
   age = obj.age;
   gender = obj.gender;
   password = obj.password;
@@ -47,7 +45,7 @@ function editProfile() {
 function appendData() {
   $("#idnoId").html(useridNo);
   $("#usernameId").html(username);
-  $("#nameId").html(name);
+  $("#nameId").html(sname);
   $("#ageId").html(age);
   $("#genderId").html(gender);
   $("#passwordId").html(password);

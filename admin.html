@@ -14,6 +14,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="/js/admin.js"></script>
+    <script type="text/javascript" src="/js/table-pagination.js"></script>
     <link href="/css/admin.css" rel="stylesheet">
 </head>
 
@@ -56,58 +57,58 @@
                 <th>
                   <div class="row">
                     <spna class="col-6 d-flex align-items-center justify-content-center">ID&nbsp;&nbsp;</spna>
-                    <div class="col-5"><i class="fa col-12" id="idUp" onclick="idAscending()">&#xf0de;</i><i
-                        class="fa col-12" id="idDown" onclick="idDescending()">&#xf0dd;</i></div>
+                    <div class="col-5"><i class="fa col-12" id="idUp" onclick="ascending('id')">&#xf0de;</i><i
+                        class="fa col-12" id="idDown" onclick="descending('id')">&#xf0dd;</i></div>
                   </div>
                 </th>
                 <th>
                   <div class="row">
                     <spna class="col-6 d-flex align-items-center justify-content-center">Username&nbsp;&nbsp;</spna>
-                    <div class="col-5"><i class="fa col-12" id="usernameUp" onclick="usernameAscending()">&#xf0de;</i><i
-                        class="fa col-12" id="usernameDown" onclick="usernameDescending()">&#xf0dd;</i></div>
+                    <div class="col-5"><i class="fa col-12" id="usernameUp" onclick="ascending('user_name')">&#xf0de;</i><i
+                        class="fa col-12" id="usernameDown" onclick="descending('user_name')">&#xf0dd;</i></div>
                   </div>
                 </th>
                 <th>
                   <div class="row">
                     <spna class="col-6 d-flex align-items-center justify-content-center">Studentname&nbsp;&nbsp;</spna>
-                    <div class="col-5"><i class="fa col-12" id="studentnameUp" onclick="snameAscending()">&#xf0de;</i><i
-                        class="fa col-12" id="studentDown" onclick="snameDescending()">&#xf0dd;</i></div>
+                    <div class="col-5"><i class="fa col-12" id="studentnameUp" onclick="ascending('student_name')">&#xf0de;</i><i
+                        class="fa col-12" id="studentnameDown" onclick="descending('student_name')">&#xf0dd;</i></div>
                   </div>
                 </th>
                 <th>
                   <div class="row">
                     <spna class="col-6 d-flex align-items-center justify-content-center">Age&nbsp;&nbsp;</spna>
-                    <div class="col-5"><i class="fa col-12" id="userageUp" onclick="ageAscending()">&#xf0de;</i><i
-                        class="fa col-12" id="userageDown" onclick="ageDescending()">&#xf0dd;</i></div>
+                    <div class="col-5"><i class="fa col-12" id="userageUp" onclick="ascending('age')">&#xf0de;</i><i
+                        class="fa col-12" id="userageDown" onclick="descending('age')">&#xf0dd;</i></div>
                   </div>
                 </th>
                 <th>
                   <div class="row">
                     <spna class="col-6 d-flex align-items-center justify-content-center">Gender&nbsp;&nbsp;</spna>
-                    <div class="col-5"><i class="fa col-12" id="usergenderUp" onclick="genderAscending()">&#xf0de;</i><i
-                        class="fa col-12" id="usergenderDown" onclick="genderDescending()">&#xf0dd;</i></div>
+                    <div class="col-5"><i class="fa col-12" id="usergenderUp" onclick="ascending('gender')">&#xf0de;</i><i
+                        class="fa col-12" id="usergenderDown" onclick="descending('gender')">&#xf0dd;</i></div>
                   </div>
                 </th>
                 <th>
                   <div class="row">
                     <spna class="col-6 d-flex align-items-center justify-content-center">Starting Date&nbsp;&nbsp;
                     </spna>
-                    <div class="col-5"><i class="fa col-12" id="sdateUp" onclick="sdateAscending()">&#xf0de;</i><i
-                        class="fa col-12" id="sdateDown" onclick="sdateDescending()">&#xf0dd;</i></div>
+                    <div class="col-5"><i class="fa col-12" id="sdateUp" onclick="ascending('starting_Date')">&#xf0de;</i><i
+                        class="fa col-12" id="sdateDown" onclick="descending('starting_Date')">&#xf0dd;</i></div>
                   </div>
                 </th>
                 <th>
                   <div class="row">
                     <spna class="col-6 d-flex align-items-center justify-content-center">Ending Date&nbsp;&nbsp;</spna>
-                    <div class="col-5"><i class="fa col-12" id="edateUp" onclick="edateAscending()">&#xf0de;</i><i
-                        class="fa col-12" id="edateDown" onclick="edateDescending()">&#xf0dd;</i></div>
+                    <div class="col-5"><i class="fa col-12" id="edateUp" onclick="ascending('ending_Date')">&#xf0de;</i><i
+                        class="fa col-12" id="edateDown" onclick="descending('ending_Date')">&#xf0dd;</i></div>
                   </div>
                 </th>
                 <th>
                   <div class="row">
                     <spna class="col-6 d-flex align-items-center justify-content-center">Plan Name&nbsp;&nbsp;</spna>
-                    <div class="col-5"><i class="fa col-12" id="pnameUp" onclick="pnameAscending()">&#xf0de;</i><i
-                        class="fa col-12" id="pnameDown" onclick="pnameDescending()">&#xf0dd;</i></div>
+                    <div class="col-5"><i class="fa col-12" id="pnameUp" onclick="ascending('plan_name')">&#xf0de;</i><i
+                        class="fa col-12" id="pnameDown" onclick="descending('plan_name')">&#xf0dd;</i></div>
                   </div>
                 </th>
               </tr>

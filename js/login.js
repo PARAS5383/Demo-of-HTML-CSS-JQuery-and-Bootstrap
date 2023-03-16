@@ -30,17 +30,17 @@ function adminLogin() {
 
 // On registration set the data into the localstorage
 function register() {
-  sUname = $('#unameRid').val();
-  sName = $("#snameRid").val();
-  sAge = $("#sageRid").val();
-  sGen = '';
+  let sUname = $('#unameRid').val();
+  let sName = $("#snameRid").val();
+  let sAge = $("#sageRid").val();
+  let sGen = '';
   $.each($("input[name='gender']:checked"), function () {
     sGen += ($(this).val());
   });
-  sPass = $("#upassRid").val();
-  pname = 'No plan';
-  sdate = '';
-  edate = '';
+  let sPass = $("#upassRid").val();
+  let pname = 'No plan';
+  let sdate = '';
+  let edate = '';
   i = localStorage.length + 1;
   const data = { id: i.toString(), user_name: sUname, student_name: sName, age: sAge, gender: sGen, password: sPass, plan_name: pname, starting_Date: sdate, ending_Date: edate };
   window.localStorage.setItem(i, JSON.stringify(data));
@@ -49,8 +49,8 @@ function register() {
 
 //Validate the user the redirected to home page with userid
 function valid() {
-  sUname = $('#unameId').val();
-  sPass = $("#upassId").val();
+  let sUname = $('#unameId').val();
+  let sPass = $("#upassId").val();
   for (var j = 1; j <= localStorage.length; j++) {
     let obj = JSON.parse(localStorage.getItem(j));
     if (obj.user_name == sUname && obj.password == sPass) {
@@ -71,8 +71,8 @@ function validAdmin() {
   $.get("data/admin.json", function (data, status, xhr) {
     for (var j = 0; j < data.length; j++) {
       dataEntry = data[j];
-      aUser = dataEntry.username;
-      aUpass = dataEntry.password;
+      let aUser = dataEntry.username;
+      let aUpass = dataEntry.password;
       if (aUser == aUname && aUpass == aPass) {
         window.location.href = 'home.html?' + aUser;
       }

@@ -2,12 +2,13 @@
 let tempObjectstore = [];
 let dataGlobal;
 let count = 0;
-var dataLength;
-var pageCount;
+let dataLength;
+let pageCount;
+let userName = window.location.href.split('?')[1];
 
-// fecth data of user from local storage and call append function
+// fecth data of admin and user json file and local storage
 function fetchuser() {
-  let userName = window.location.href.split('?')[1];
+  // for admin
   $.get("data/admin.json", function (data, status, xhr) {
     for (var j = 0; j < data.length; j++) {
       let dataEntry = data[j];
@@ -22,7 +23,7 @@ function fetchuser() {
     };
   });
 
-  // Common data add from localfile file
+  // for user
   let data = [];
   for (i = 1; i <= localStorage.length; i++) {
     let obj = JSON.parse(localStorage.getItem(i));
@@ -34,218 +35,39 @@ function fetchuser() {
 
 };
 
-// Id ascending function
-function idAscending(parameterPass) { 
-  if (parameterPass == true) {
+// Check that another serching or pagination is present or not
+function checkParameter(objectChange){
+  if (objectChange == true) {
     var data = tempObjectstore;
   }
   else {
     var data = dataGlobal;
   }
+  return data;
+}
+
+// Table ascending function 
+function ascending(fieldName, objectChange){
+  var data = checkParameter(objectChange);
+  fieldValue = fieldName.valueOf();
   $("#tbody").empty();
-  data.sort((a, b) => (a.id < b.id) ? -1 : ((a.id < b.id) ? 1 : 0));
-  commonFunction(data);
+  data.sort((a, b) => (a[fieldValue] < b[fieldValue]) ? -1 : ((a[fieldValue] < b[fieldValue]) ? 1 : 0));
+  commonFunction(data); 
 };
 
-// Id descending function
-function idDescending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
+// Table descending function 
+function descending(fieldName, objectChange) {
+  var data = checkParameter(objectChange);
+  fieldValue = fieldName.valueOf();
   $("#tbody").empty();
-  data.sort((a, b) => (a.id > b.id) ? -1 : ((a.id > b.id) ? 1 : 0));
-  commonFunction(data);
-};
-
-// Username ascending function
-function usernameAscending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.user_name < b.user_name) ? -1 : ((a.user_name < b.user_name) ? 1 : 0));
-  commonFunction(data);
-};
-
-// Username descending function
-function usernameDescending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.user_name > b.user_name) ? -1 : ((a.user_name > b.user_name) ? 1 : 0));
-  commonFunction(data);
-};
-
-// student_name ascending function
-function snameAscending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.student_name < b.student_name) ? -1 : ((a.student_name < b.student_name) ? 1 : 0));
-  commonFunction(data);
-};
-
-// student_name descending function
-function snameDescending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.student_name > b.student_name) ? -1 : ((a.student_name > b.student_name) ? 1 : 0));
-  commonFunction(data);
-};
-
-// Age ascending function
-function ageAscending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.age < b.age) ? -1 : ((a.age < b.age) ? 1 : 0));
-  commonFunction(data);
-};
-
-// Age descending function
-function ageDescending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.age > b.age) ? -1 : ((a.age > b.age) ? 1 : 0));
-  commonFunction(data);
-};
-
-// Gender ascending function
-function genderAscending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.gender < b.gender) ? -1 : ((a.gender < b.gender) ? 1 : 0));
-  commonFunction(data);
-};
-
-// Gender decending funcation
-function genderDescending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.gender > b.gender) ? -1 : ((a.gender > b.gender) ? 1 : 0));
-  commonFunction(data);
-};
-
-// Starting date ascending function
-function sdateAscending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.starting_Date < b.starting_Date) ? -1 : ((a.starting_Date < b.starting_Date) ? 1 : 0));
-  commonFunction(data);
-};
-
-// Starting date decending funcation
-function sdateDescending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.starting_Date > b.starting_Date) ? -1 : ((a.starting_Date > b.starting_Date) ? 1 : 0));
-  commonFunction(data);
-};
-
-// Ending date ascending function
-function edateAscending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.ending_Date < b.ending_Date) ? -1 : ((a.ending_Date < b.ending_Date) ? 1 : 0));
-  commonFunction(data);
-};
-
-// Ending date decending funcation
-function edateDescending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.ending_Date > b.ending_Date) ? -1 : ((a.ending_Date > b.ending_Date) ? 1 : 0));
-  commonFunction(data);
-};
-
-// Plan name ascending function
-function pnameAscending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.plan_name < b.plan_name) ? -1 : ((a.plan_name < b.plan_name) ? 1 : 0));
-  commonFunction(data);
-};
-
-// Plan name decending funcation
-function pnameDescending(parameterPass) {
-  if (parameterPass == true) {
-    var data = tempObjectstore;
-  }
-  else {
-    var data = dataGlobal;
-  }
-  $("#tbody").empty();
-  data.sort((a, b) => (a.plan_name > b.plan_name) ? -1 : ((a.plan_name > b.plan_name) ? 1 : 0));
+  data.sort((a, b) => (a[fieldValue] > b[fieldValue]) ? -1 : ((a[fieldValue] > b[fieldValue]) ? 1 : 0));
   commonFunction(data);
 };
 
 // Filter function
-function find(parameterPass) {
-  if (parameterPass == true) {
-    pageData = [];
+function find(objectChange) {
+  if (objectChange == true) {
+    let pageData = [];
     $("#tbody").empty();
     tempObjectstore.findIndex(function (entry, i) {
       if (entry.id.includes($("#search").val()) == true || entry.user_name.includes($("#search").val()) == true || entry.student_name.includes($("#search").val()) == true || entry.age.includes($("#search").val()) == true || entry.gender.includes($("#search").val()) == true || entry.starting_Date.includes($("#search").val()) == true || entry.ending_Date.includes($("#search").val()) == true || entry.plan_name.includes($("#search").val()) == true) {
@@ -274,88 +96,24 @@ function find(parameterPass) {
   }
 };
 
-// Pagination function add pages, next, prev button in page
-function pagination(parameterPass) {
-  if (parameterPass == true) {
-    dataGlobal = tempObjectstore;
-  }
-  var pageNum = $("#page").val();
-  var data = [];
-  $("#tbody").empty();
-  $("#addButton").empty();
-  $("#addPrevbutton").empty();
-  $("#addNextbutton").empty();
-  x = dataGlobal.length;
-  if (pageNum < x) {
-    y = pageNum;
-    if ((x % y) == 0) {
-      z = (x / y);
-    }
-    else {
-      z = Math.trunc(x / y) + 1;
-    }
-    $("#addPrevbutton").append('<button type="button" class="btn btn-warning" onclick="prevPage()">< Previous</button>');
-    for (i = 1; i <= z; i++) {
-      $("#addButton").append('<button type="button"  class="btn text-light" onclick="nextPage(' + i + ')">' + i + '</button>');
-    }
-    $("#addNextbutton").append('<button type="button" class="btn btn-warning" onclick="nextBtn()">Next ></button>');
-    for (var i = 0; i < pageNum; i++) {
-      data.push(dataGlobal[i]);
-    }
-    pageCount = 1;
-    commonFunction(data);
-  }
-  else {
-    data = dataGlobal;
-    commonFunction(data)
-  }
-  changeClickfunctionT();
-  tempObjectstore = data;
-  $('#search').attr("onkeyup", "find(true)");
-}
-
-// Next page function
-function nextPage(parameterPass) {
-  pageCount = parameterPass;
-  pageData = [];
-  $("#tbody").empty();
-  j = ((parameterPass - 1) * $("#page").val());
-  if (parameterPass == 1) {
-    k = ($("#page").val() - 1);
-  }
-  else if ((j + parseInt($("#page").val())) > dataGlobal.length) {
-    k = (dataGlobal.length - 1);
-  }
-  else {
-    k = ((parameterPass * $("#page").val()) - 1);
-  }
-  for (i = j; i <= k; i++) {
-    pageData.push(dataGlobal[i]);
-  }
-  tempObjectstore = pageData;
-  var data = pageData;
-  commonFunction(data);
-  changeClickfunctionT();
-}
-
 // Change the function parameter of assending and desending
 function changeClickfunctionT() {
-  $('#idUp').attr("onclick", "idAscending(true)");
-  $('#idDown').attr("onclick", "idDescending(true)");
-  $('#usernameUp').attr("onclick", "usernameAscending(true)");
-  $('#usernameDown').attr("onclick", "usernameDescending(true)");
-  $('#studentnameUp').attr("onclick", "snameAscending(true)");
-  $('#studentnameDown').attr("onclick", "snameDescending(true)");
-  $('#userageUp').attr("onclick", "ageAscending(true)");
-  $('#userageDown').attr("onclick", "ageDescending(true)");
-  $('#usergenderUp').attr("onclick", "genderAscending(true)");
-  $('#usergenderDown').attr("onclick", "genderDescending(true)");
-  $('#sdateUp').attr("onclick", "sdateAscending(true)");
-  $('#sdateDown').attr("onclick", "sdateDescending(true)");
-  $('#edateUp').attr("onclick", "edateAscending(true)");
-  $('#edateDown').attr("onclick", "edateDescending(true)");
-  $('#pnameUp').attr("onclick", "pnameAscending(true)");
-  $('#pnameDown').attr("onclick", "pnameDescending(true)");
+  $('#idUp').attr("onclick", "ascending('id',true)");
+  $('#idDown').attr("onclick", "descending('id',true)");
+  $('#usernameUp').attr("onclick", "ascending('user_name',true)");
+  $('#usernameDown').attr("onclick", "descending('user_name',true)");
+  $('#studentnameUp').attr("onclick", "ascending('student_name',true)");
+  $('#studentnameDown').attr("onclick", "descending('student_name',true)");
+  $('#userageUp').attr("onclick", "ascending('age',true)");
+  $('#userageDown').attr("onclick", "descending('age',true)");
+  $('#usergenderUp').attr("onclick", "ascending('gender',true)");
+  $('#usergenderDown').attr("onclick", "descending('gender',true)");
+  $('#sdateUp').attr("onclick", "ascending('starting_Date',true)");
+  $('#sdateDown').attr("onclick", "descending('starting_Date',true)");
+  $('#edateUp').attr("onclick", "ascending('ending_Date',true)");
+  $('#edateDown').attr("onclick", "descending('ending_Date',true)");
+  $('#pnameUp').attr("onclick", "ascending('plan_name',true)");
+  $('#pnameDown').attr("onclick", "descending('plan_name',true)");
 }
 
 // Comman data append with enties details function
