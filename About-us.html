@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <style>
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .img {
+      opacity: 50%;
+    }
+
+    .row {
+      padding-top: 20%;
+    }
+
+    .text {
+      background-color: rgba(0, 0, 0, 0.65);
+    }
+
+    .cover {
+      background-color: rgba(0, 0, 0, 0.40);
+      height: 100vh;
+      min-height: 500px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .background {
+      background-image: url('photos/about-us-photo.jpeg');
+      height: 100vh;
+      min-height: 500px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navbar section -->
+  <nav class="navbar fixed-top">
+    <div class="d-flex align-items-center container-fluid">
+      <span class="logo navbar-brand ms-4 justify-content-start" onclick="home()">
+        <img src="photos/icons-home.svg" alt="icon">
+      </span>
+    </div>
+  </nav>
+
+  <!--Abous us section-->
+  <div class="background">
+    <div class="cover">
+      <div class="row d-flex justify-content-center">
+        <div class="img col-lg-4 col-12 d-flex justify-content-center rounded"><img class="rounded-circle w-50"
+            src="/photos/about-us.jpg"></div>
+        <div class="text col-lg-6 col-12 text-light rounded">
+          <h1 class="text-info">About Us</h1>
+          <h6 class="text-warning">On-Hand School</h6>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum dolorem repellendus sequi architecto
+            officia cupiditate saepe consequuntur unde quia voluptates earum, illum quisquam aspernatur, sapiente illo
+            adipisci ipsum soluta nostrum ullam dolores. Iste ex quos dolores unde tenetur magnam cum, laudantium
+            dolorum molestias optio esse nesciunt labore quas! Adipisci reiciendis quibusdam repellat unde optio
+            blanditiis mollitia quidem fuga aspernatur nobis! Voluptatibus exercitationem molestiae ut nihil ratione,
+            accusantium deserunt suscipit libero sint minus rem ea eius iste aliquam perferendis ipsum dolores sequi
+            consequatur labore harum doloremque tempora non quaerat. Unde porro inventore dolor libero deserunt! Eius
+            non dolores optio. Debitis, necessitatibus.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  
+  //find user id or username
+  const urlParams = window.location.href;
+  userID = urlParams.split('?')[1];
+
+  //for back home
+  function home() {
+    if (userID != undefined) {
+      window.location.href = 'Home.html?' + userID;
+    }
+    else {
+      window.location.href = 'Home.html';
+    }
+  };
+</script>

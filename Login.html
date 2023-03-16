@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <style>
+    .row {
+      --bs-gutter-x: 0rem;
+    }
+
+    @media only screen and (min-width: 1200px) {
+      .login-bg {
+        margin-top: 10%;
+      }
+    }
+
+    @media only screen and (max-width: 1200px) {
+      .login-bg {
+        margin-top: 30%;
+      }
+    }
+
+    .login-bg {
+      background-color: #00000080;
+    }
+
+    .login-bg .btn {
+      text-align: center;
+    }
+
+    label {
+      color: #00bad3;
+    }
+  </style>
+</head>
+
+<body>
+  <div
+    style="background-image: url('photos/Header_background.jpg'); height: 100%; min-height: 990px; background-repeat: no-repeat; background-size: cover; background-position: center;">
+    <div id="loginId" class="row justify-content-center">
+      <div class="login-bg  p-4 col-lg-2 col-sm-6 col-10 align-items-center justify-content-center">
+        <h3 class="text-center text-light">User Login</h3>
+        <label for="unameId">Username<br>
+          <input class="form-control mt-1" type="text" id="unameId"></label><br>
+        <label for="upassId">Password <br>
+          <input class="form-control mt-1" type="password" id="upassId"></label><br>
+        <h3 class="text-center mt-2"><button class="btn btn-warning rounded border-0" type="button"
+            onclick="valid()">LOGIN</button></h3>
+        <div class="addWarning"></div>
+        <h7><a class="text-decoration-none  text-danger" onclick="regiFun()">New user? Registered now!</a></h7>
+        <h5 class="mt-2"><a class="text-decoration-none text-success" onclick="adminLogin()">Admin Login</a></h5>
+        <h3 class="mt-2"><button class="btn btn-success rounded border-0" type="button"
+            onclick="backHome()">Home</button></h3>
+      </div>
+    </div>
+    <div id="regiId" class="row justify-content-around">
+      <div class="login-bg p-4 col-lg-2 col-sm-6 col-10 align-items-center justify-content-center">
+        <h3 class="text-center text-light">Registration</h3>
+        <form onsubmit="register()">
+          <label for="unameRid">Username<br>
+            <input class="form-control mt-1" type="text" id="unameRid" required /></label><br>
+          <label for="snameRid">Studentname<br>
+            <input class="form-control mt-1" type="text" id="snameRid" required /></label><br>
+          <label for="sageRid">Age<br>
+            <input class="form-control mt-1" type="number" id="sageRid" required /></label><br>
+          <div class=" mt-1">
+            <label class="form-label">Gender<br>
+              <label for="gmale">Male</label>
+              <input class="genderc" type="radio" id="gmale" name="gender" value="Male" required />
+              <label for="gfemale">Female</label>
+              <input class="genderc" type="radio" id="gfemale" name="gender" value="Female" required />
+              <label for="gother">Other</label>
+              <input class="genderc" type="radio" id="gother" name="gender" value="Other" required />
+            </label>
+          </div>
+          <label for="upassRId">Password <br>
+            <input class="form-control mt-1" type="password" id="upassRid" required /></label><br>
+          <h3 class="text-center mt-2"><button class="btn btn-warning rounded border-0" type="submit"
+              id="subId">Register</button>
+          </h3>
+        </form>
+        <h7><a class="text-decoration-none text-danger" onclick="loginFun()">Already Registered? Login now!</a></h7>
+      </div>
+    </div>
+    <div id="adminloginId" class="row justify-content-center">
+      <div class="login-bg  p-4 col-lg-2 col-sm-6 col-10 align-items-center justify-content-center">
+        <h3 class="text-center text-light">Admin Login</h3>
+        <label for="unameId">Username<br>
+          <input class="form-control mt-1" type="text" id="unameAid"></label><br>
+        <label for="upassId">Password <br>
+          <input class="form-control mt-1" type="password" id="upassAid"></label><br>
+        <h3 class="text-center mt-2"><button class="btn btn-warning rounded border-0" type="button"
+            onclick="validAdmin()">LOGIN</button></h3>
+        <div class="addWarning"></div>
+        <h7><a class="text-decoration-none text-danger" onclick="loginFun()">No I am not Admin!</a></h7>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+
+  // Global variable
+  let uId;
+
+  // Hide the registration and admin part on load body
+  $("#regiId").hide();
+  $("#adminloginId").hide();
+
+  //Open registration section
+  function regiFun() {
+    $("#loginId").hide();
+    $("#regiId").show();
+    $("#adminloginId").hide();
+  };
+
+  //Open the login section
+  function loginFun() {
+    $("#loginId").show();
+    $("#regiId").hide();
+    $("#adminloginId").hide();
+  };
+
+  //open the admin section
+  function adminLogin() {
+    $("#loginId").hide();
+    $("#regiId").hide();
+    $("#adminloginId").show();
+  };
+
+  // On registration set the data into the localstorage
+  function register() {
+    sUname = $('#unameRid').val();
+    sName = $("#snameRid").val();
+    sAge = $("#sageRid").val();
+    sGen = '';
+    $.each($("input[name='gender']:checked"), function () {
+      sGen += ($(this).val());
+    });
+    sPass = $("#upassRid").val();
+    pname = 'No plan';
+    sdate = '';
+    edate = '';
+    i = localStorage.length + 1;
+    const data = { id: i.toString(), user_name: sUname, student_name: sName, age: sAge, gender: sGen, password: sPass, plan_name: pname, starting_Date: sdate, ending_Date: edate };
+    window.localStorage.setItem(i, JSON.stringify(data));
+    loginFun();
+  };
+
+  //Validate the user the redirected to home page with userid
+  function valid() {
+    sUname = $('#unameId').val();
+    sPass = $("#upassId").val();
+    for (var j = 1; j <= localStorage.length; j++) {
+      let obj = JSON.parse(localStorage.getItem(j));
+      if (obj.user_name == sUname && obj.password == sPass) {
+        uId = obj.id;
+        window.location.href = 'Home.html?' + uId;
+      }
+      else {
+        notValid();
+      }
+    };
+  };
+
+  // Validate the admin and redirected to home page with admin username
+  function validAdmin() {
+    let dataEntry;
+    var aUname = $('#unameAid').val();
+    var aPass = $("#upassAid").val();
+    $.get("Data/admin.json", function (data, status, xhr) {
+      for (var j = 0; j < data.length; j++) {
+        dataEntry = data[j];
+        aUser = dataEntry.username;
+        aUpass = dataEntry.password;
+        if (aUser == aUname && aUpass == aPass) {
+          window.location.href = 'Home.html?' + aUser;
+        }
+        else {
+          notValid();
+        }
+      }
+    });
+  };
+
+  // Not valid the username and password than give the warning 
+  function notValid() {
+    $(".addWarning").html('<h7 class="text-danger">Enter Valid Username & Password!</h7>');
+    $("#upassId").val('');
+    $("#upassAid").val('');
+    const myTimeout = setTimeout(clearWarning, 1000);
+  };
+
+  //Clear warning after 1 second
+  function clearWarning() {
+    $(".addWarning").empty();
+  };
+
+  //If not login and back home
+  function backHome() {
+    window.location.href = 'Home.html';
+  };
+
+</script>

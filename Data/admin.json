@@ -1,0 +1,17 @@
+[
+  {
+    "username": "admin1",
+    "name": "Paras Pansuriya",
+    "password": "prs123"
+  },
+  {
+    "username": "admin2",
+    "name": "Agnesh Vekariya",
+    "password": "agn123"
+  },
+  {
+    "username": "admin3",
+    "name": "Premal Kamani",
+    "password": "prml123"
+  }
+]

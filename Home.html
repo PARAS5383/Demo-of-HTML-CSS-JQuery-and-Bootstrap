@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.5/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.5/swiper-bundle.min.js"></script>
+  <style>
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #heading {
+      color: white;
+      color: active;
+      font-size: 50px;
+      font-family: 'Poppins';
+      font-weight: bold;
+      display: inline-block;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #subHeading {
+      color: rgb(0, 255, 191);
+      background-color: rgba(0, 0, 0, 0.5);
+      display: inline-block;
+    }
+
+    .slideClass {
+      position: relative;
+    }
+
+    .slidetitle {
+      color: white;
+      position: absolute;
+      z-index: 1;
+      margin-top: 37%;
+      margin-left: 40%;
+    }
+
+    .plan {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .plan-button {
+      background-color: rgba(255, 203, 33, 0.5);
+    }
+
+    .line,
+    #addUser {
+      color: rgb(255, 176, 73);
+    }
+
+    @media only screen and (min-width: 992px) {
+
+      .swiper-wrapper,
+      .swiper-button-prev {
+        margin-left: 8%;
+      }
+
+      .swiper-button-next {
+        margin-right: 6%;
+      }
+
+      .slidetitle {
+        margin-top: 34%;
+        margin-left: 39%;
+      }
+    }
+
+    @media only screen and (min-width: 1200px) {
+
+      .swiper-wrapper,
+      .swiper-button-prev {
+        margin-left: 13%;
+      }
+
+      .swiper-button-next {
+        margin-right: 15;
+      }
+
+      .slidetitle {
+        margin-top: 28%;
+        margin-left: 33%;
+      }
+    }
+
+    @media only screen and (min-width: 1400px) {
+
+      .swiper-wrapper,
+      .swiper-button-prev {
+        margin-left: 18%;
+      }
+
+      .swiper-button-next {
+        margin-right: 20%;
+      }
+
+      .slidetitle {
+        margin-top: 25%;
+        margin-left: 29%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navbar section -->
+  <nav class="navbar fixed-top">
+    <div class="d-flex align-items-center container-fluid">
+      <a class="logo navbar-brand ms-4 justify-content-start" href="#">
+        <img src="photos/icons-home.svg" alt="icon">
+      </a>
+      <strong id="regiBtn"><a class="text-light navbar-brand ms-4 justify-content-start"
+          href="Login.html">Registration</a></strong>
+      <strong id="aboutusBtn" class="text-light navbar-brand ms-4 justify-content-start" onclick="aboutus()">About
+        Us</a></strong>
+      <a class="logo navbar-brand ms-auto text-decoration-none">
+        <div class="mb-0" id="addUser"></div>
+      </a>
+    </div>
+  </nav>
+
+  <!-- heading photo section -->
+  <header
+    style="background-image: url('photos/Header_background.jpg'); height: 100vh; min-height: 500px; background-repeat: no-repeat; background-size: cover; background-position: center;">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+          <h1 class="rounded" id="heading">Welcome To The Campus</h1><br>
+          <p class="lead rounded" id="subHeading">We Provide Gujarat's <br>Most Registered Students On-hand School</p>
+          <br>
+          <div id=loginBtn>
+            <a class="text-decoration-none text-dark" href="Login.html"><button type="button"
+                class="btn btn-warning rounded border-0"><img src="/photos/icons-user.png" alt="icon">Login
+                Now</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- info section -->
+  <div class="bg-dark">
+    <div class="container-fluid">
+      <h3 class="text-light text-center text-decoration-underline p-2">Our Vision</h3>
+      <div class="row g-0 position-relative pt-5 ms-md-2 me-md-2 bg-light">
+        <div class="col-lg-4 col-12">
+          <img src="photos/principal-photo.jpeg" class="container-fluid " alt="principal_photo">
+        </div>
+        <div class="col-lg-8 ps-5 pt-2 col-12">
+          <p class="text-success">Principal</p>
+          <h1 class="mt-0">Headmaster's Message Managcoding Vocational High School learn</h1>
+          <p>"Let's praise and give thanks to God. Who always with the nature of love and affection gives a lot of
+            favors".</p>
+          <strong>Darlene Robertson</Strong>
+          <p>Principal</p>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid ">
+      <div class="row g-0 position-relative pt-5 pb-5 ms-md-2 me-md-2 bg-light">
+        <div class="col-lg-8 ps-5 pt-2 col-12 order-lg-1 order-2">
+          <p class="text-success">Teacher</p>
+          <h1 class="mt-0">Master's Message Managcoding Vocational High School learn</h1>
+          <p>"Let's praise and give thanks to God. Who always with the nature of love and affection gives a lot of
+            favors".</p>
+          <strong>Mathew Robertson</Strong>
+          <p>Teacher</p>
+        </div>
+        <div class="col-lg-4 col-12 order-lg-2 order-1">
+          <img src="photos/teacher-photo.jpeg" class="container-fluid " alt="teacher_photo">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- slide section -->
+    <h3 id="sliderId" class="text-light text-center m-3 text-decoration-underline">Enjoy with us</h3>
+    <div class="container mt-4 mb-5">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide ">
+            <h3 class="slidetitle">Diwali</h3>
+            <img class="img-fluid slideClass" src="photos/slide1.jpg" alt="Diwali Photo">
+          </div>
+          <div class="swiper-slide">
+            <h3 class="slidetitle">Holi</h3>
+            <img class=" img-fluid slideClass" src="photos/slide2.jpg" alt="Holi Photo">
+          </div>
+          <div class="swiper-slide">
+            <h3 class="slidetitle">Kite</h3>
+            <img class="img-fluid slideClass" src="photos/slide3.jpg" alt="Kite Photo">
+          </div>
+        </div>
+        <div class="swiper-button-prev text-dark"></div>
+        <div class="swiper-button-next text-dark"></div>
+        <div class="swiper-pagination text-dark"></div>
+        <div class="swiper-scrollbar text-dark"></div>
+      </div>
+    </div>
+
+    <!-- Plan section -->
+    <div id="planId" class="container-fluid">
+      <h3 class="text-light text-center text-decoration-underline">The Right plan for your Study</h3>
+      <p class="text-light text-center">Choose that works best for your education</p>
+      <div class="row g-0 position-relative pt-5 pb-5 bg-transperant justify-content-evenly">
+        <div class="plan col-lg-2 pt-2 pb-2 col-12 mt-lg-0 rounded text-center">
+          <p class="text-dark bg-warning">Monthly</p>
+          <font size="5"><strong>&#8377;200/</strong></font>
+          <font class="text-success" size="2">1 months</font><br>
+          <p class="mt-2">All the features</p>
+          <p>Free expert lecture</p>
+          <p>Class Notes</p>
+          <p class="text-muted">Storage space 10 GB</p>
+          <p class="text-muted">free SSL Certificate</p>
+          <button type="button" class="btn btn-warning plan-button rounded border-0" onclick='plan(1)'>GET
+            STARTED</button>
+        </div>
+        <div id="6monthId" class="plan col-lg-2 pt-2 pb-2 col-12 mt-lg-0 mt-3 rounded text-center">
+          <h5 class="text-dark bg-warning">Half-yearly</h5>
+          <font size="5"><strong>&#8377;600/</strong></font>
+          <font class="text-success" size="2">6 months</font><br>
+          <p class="mt-2">All the features</p>
+          <p>Free expert lecture</p>
+          <p>Class Notes</p>
+          <p>Storage space 10 GB</p>
+          <p class="text-muted">free SSL Certificate</p>
+          <button type="button" class="btn btn-warning plan-button rounded border-0" onclick='plan(2)'>GET
+            STARTED</button>
+        </div>
+        <div id="12monthId" class="plan col-lg-2 pt-2 pb-2 col-12 mt-lg-0 mt-3 rounded text-center">
+          <h5 class="text-dark bg-warning">Annual</h5>
+          <font size="5"><strong>&#8377;1000/</strong></font>
+          <font class="text-success" size="2">12 months</font><br>
+          <p class="mt-2">All the features</p>
+          <p>Free expert lecture</p>
+          <p>Class Notes</p>
+          <p>Storage space 10 GB</p>
+          <p>free SSL Certificate</p>
+          <button type="button" class="btn btn-warning plan-button rounded border-0" onclick='plan(3)'>GET
+            STARTED</button>
+        </div>
+      </div>
+    </div>
+    <hr class="line ms-lg-5 me-lg-5" size="10">
+
+    <!-- footer section -->
+    <div class="container-fluid ">
+      <div class="row mt-lg-5 mb-lg-5 d-flex  justify-content-evenly">
+        <div class="col-lg-2 text-center">
+          <img src="photos/icons-google-classroom.svg" alt="logo">
+          <h6 class="text-light">On-hand School</h6>
+        </div>
+        <div class="col-lg-2 text-center text-light">
+          <a class="text-light text-decoration-none" href="#">FAQS</a></br>
+          <a class="text-light text-decoration-none" href="#planId">SERVICES</a></br>
+          <a class="text-light text-decoration-none" href="#sliderId">PRESS RELEASES</a></br>
+          <a class="text-light text-decoration-none" href="#planId">CAREER</a></br>
+          <a class="text-light text-decoration-none" href="#loginBtn">STUDENT PORTAL</a></br>
+        </div>
+        <div class="col-lg-2 text-center text-light">
+          <a class="text-light text-decoration-none" onclick="aboutus()">ABOUT US</a></br>
+          <a class="text-light text-decoration-none" onclick="contactus()">CONTACT US</a></br>
+          <a class="text-light text-decoration-none" href="#">RESOURCES</a></br>
+          <a class="text-light text-decoration-none" href="#">SUBSCRIBE</a></br>
+          <a class="text-light text-decoration-none" href="#">ANOTHER LINK</LINK></a></br>
+        </div>
+      </div>
+    </div>
+    <hr class="line ms-lg-5 me-lg-5">
+
+    <!-- account link section -->
+    <div id="socialId" class="container-fluid d-flex justify-content-center">
+      <a class="m-lg-5 me-1" href="#"><img src="photos/icons-instagram.svg" alt="insta-icon"></a>
+      <a class="m-lg-5 me-1" href="#"><img src="photos/icons-facebook.svg" alt="facebook-icon"></a>
+      <a class="m-lg-5 me-1" href="#"><img src="photos/icons-twitter.svg" alt="twitter-icon"></a>
+      <a class="m-lg-5 me-1" href="#"><img src="photos/icons-linkedin.svg" alt="linkedin-icon"></a>
+    </div>
+    <p class="text-center text-light mb-0 pb-2">&#169;Copyright. All rights reserved.</p>
+  </div>
+</body>
+
+</html>
+<script>
+
+  // swiper slider optinal script 
+  const swiper = new Swiper('.swiper', {
+    direction: 'horizontal',
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: true,
+      reverseDirection: false,
+    },
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
+  });
+
+  //Global variable;
+  let globalVarible;
+
+  //Fetch id from url and accoring that show user page
+  const urlParams = window.location.href;
+  userID = urlParams.split('?')[1];
+  idName = $.isNumeric(userID)
+  if (userID != undefined) {
+    if (idName == true) {
+      let obj = JSON.parse(localStorage.getItem(userID));
+      globalVarible = obj
+      $("#regiBtn").empty();
+      $("#loginBtn").empty();
+      $("#addUser").html('<div class="d-inline " onclick="profile()">Hi! ' + obj.student_name + '</div><a class= "text-decoration-none text-dark" href = "/Home.html" > <button type="button" class="ms-2 btn btn-warning rounded border-0"><img src="/photos/icons-logout.png" alt="logout">Log out</button></a>');
+      checkPlan();
+    }
+    else {
+      $.get("Data/admin.json", function (data, status, xhr) {
+        for (var j = 0; j < data.length; j++) {
+          dataEntry = data[j];
+          if (dataEntry.username == userID) {
+            $("#regiBtn").empty();
+            $("#loginBtn").empty();
+            $("#addUser").html('<div class="d-inline " onclick="data_entries()">' + dataEntry.name + '(Admin)</div><a class= "text-decoration-none text-dark" href = "/Home.html" ><button type="button" class="ms-2 btn btn-warning rounded border-0"><img src="/photos/icons-logout.png" alt="logout">Log out</button></a>');
+            $("#planId").empty();
+          }
+        };
+      });
+    }
+  };
+
+  // for open user profile 
+  function profile() {
+    window.location.href = 'User.html?' + userID;
+  };
+
+  // for open admin profile
+  function data_entries() {
+    window.location.href = 'Admin.html?' + userID;
+  };
+
+  // If user is under the any plan then remove plan section
+  function checkPlan() {
+    date = new Date();
+    var currentDate = date.getFullYear() + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getDate();
+    uendDate = globalVarible.ending_Date;
+    if (currentDate <= uendDate) {
+      $("#planId").empty();
+    }
+  };
+
+  //For chooisng their plan
+  function plan(parameterPass) {
+    planType = parameterPass;
+    date = new Date();
+    currentDate = '';
+    EndDate = '';
+    var dateToday = date.getFullYear() + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getDate();
+    if (planType == 1) {
+      checkLogin();
+      var text = "You choose Monthly Plan.....";
+      if (confirm(text) == true) {
+        date.setMonth(date.getMonth() + 1);
+        var EndDate = date.getFullYear() + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getDate();
+        globalVarible.plan_name = "Monthly";
+        currentDate = dateToday;
+      }
+    }
+    else if (planType == 2) {
+      checkLogin();
+      var text = "You choose Half-yearly Plan.....";
+      if (confirm(text) == true) {
+        date.setMonth(date.getMonth() + 6);
+        var EndDate = date.getFullYear() + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getDate();
+        globalVarible.plan_name = "Half-yearly";
+        currentDate = dateToday;
+      }
+    }
+    else {
+      checkLogin();
+      var text = "You choose Annual Plan.....";
+      if (confirm(text) == true) {
+        var EndDate = (date.getFullYear() + 1) + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getDate();
+        globalVarible.plan_name = "Annual";
+        currentDate = dateToday;
+      }
+    }
+    globalVarible.starting_Date = currentDate;
+    globalVarible.ending_Date = EndDate;
+    window.localStorage.setItem(userID, JSON.stringify(globalVarible));
+    checkPlan();
+  };
+
+  //check the user is login or not
+  function checkLogin() {
+    if (userID == undefined) {
+      alert("You need first register and login into class");
+      checkPlan();
+    }
+  };
+
+  //about us page
+  function aboutus() {
+    if (userID != undefined) {
+      window.location.href = 'About-us.html?' + userID;
+    }
+    else {
+      window.location.href = 'About-us.html';
+    }
+  }
+
+  // contact us page
+  function contactus() {
+    if (userID != undefined) {
+      window.location.href = 'Contact-us.html?' + userID;
+    }
+    else {
+      window.location.href = 'Contact-us.html';
+    }
+  };
+
+</script>
