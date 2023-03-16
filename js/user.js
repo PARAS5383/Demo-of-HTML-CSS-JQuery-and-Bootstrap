@@ -36,7 +36,7 @@ function editProfile() {
   $("#editId").show();
   $("#loginId").hide();
   $("#unameEid").val(username);
-  $("#snameEid").val(name);
+  $("#snameEid").val(sname);
   $("#sageEid").val(age);
   $("#upassEid").val(password);
 };
